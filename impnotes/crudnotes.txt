@@ -1,0 +1,74 @@
+
+Sasa for psotgre
+server post
+
+1 database approach crud operations---     done
+
+2.code first approach crud operation----------
+
+https://www.c-sharpcorner.com/article/create-asp-net-core-web-api-with-entity-framework-code-first-approach/   
+
+3.api using joins with postgrel ----  https://www.c-sharpcorner.com/UploadFile/ff0d0f/joins-in-sql-server/
+
+https://youtu.be/KTvYHEntvn8 for joins
+
+select * from table1 innerjoin table2 on table1.id=table2.id
+
+----->types of joins
+
+Inner Join
+Outer Join
+   --Left Outer Join
+   --Right Outer Join
+   --Full Outer Join
+
+	
+Cross Join
+Self Join
+
+https://www.w3schools.com/sql/sql_join.asp for joins
+
+SELECT tblemployee.firstname, tbldepartment.departmentname, tblemployee.lastname
+FROM tblemployee
+INNER JOIN tbldepartment ON tblemployee.empid=tbldepartment.deptid;
+
+
+
+--postgrel we cannot create stored procedure
+   we can write functions in postgrel 
+						CREATE TABLE color (
+    color_id INT GENERATED ALWAYS AS IDENTITY,
+    color_name VARCHAR NOT NULL
+);
+
+https://www.c-sharpcorner.com/UploadFile/john_charles/using-postgresql-from-microsoft-net/
+4.stored procedure
+
+
+
+
+
+
+
+
+
+https://www.c-sharpcorner.com/article/working-with-data-using-entity-framework-core/
+
+https://www.c-sharpcorner.com/article/crud-operations-in-postgresql-with-ef-core-and-asp-net-core-web-api/
+
+
+https://stackoverflow.com/questions/39454545/the-term-scaffold-dbcontext-is-not-recognized-as-the-name-of-a-cmdlet-functio
+
+“Npgsql.EntityFrameworkCore.PostgreSQL
+
+ Microsoft.EntityFrameworkCore 6.03 version
+
+Make sure the browser is selected at the top and search for "EntityFrameworkCore" and install the Package
+
+
+Scaffold-DbContext "Server=(localdb)\mssqllocaldb;Database=myDbName;Trusted_Connection=True;" Microsoft.EntityFrameworkCore.SqlServer -OutputDir Models
+Scaffold-DbContext "Server=PostgreSQL 14;Database=Sample;Trusted_Connection=True;"System.Data.SqlClient -OutputDir Models
+
+
+
+

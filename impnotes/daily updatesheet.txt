@@ -1,0 +1,91 @@
+24/10/2022 1.crud using postgres (database first approach)
+
+how to do debugging in visualstudio
+what is the command for setting the text i.e control +K D 
+
+25/10/22   2.joins
+25/10/2022 3.procedure
+
+
+26/10/2022  4.code first approach for sql server 
+
+
+
+----github
+postgres disadvantages
+-----------
+we cant create stored proc
+we cant execute multiple queries in at a time 
+
+1.change the date from yyyy-mm--dd to dd-mm-yyy
+2.joins using .net core with postgrel as well sql server
+3.procedures using .net core and sql server
+4.micro servives
+
+
+
+github
+------
+
+creating repository with name 
+
+select wherether it should share with all select public or do not want to private
+create 1 folder 
+open it
+right click it 
+open git bash
+
+
+command 
+'''''''''''''''				
+shift insert so we can paste the url
+git clone url
+
+ls --for list of file we have in the repository
+cd Repositoryname the it moved to that repositroy
+git pull for getting the files newly added
+cat test.txt to print the data what the file have
+git status
+git add filename
+git commit -m 'test'
+git push origin master in which ur repository main or master
+git remote -v in which repository we are push	ing the files
+
+-------- for empty repository 
+git init intialize the git
+echo "# emptyrepository" >> README.md create a new file
+git add README.md add file to it
+
+git add . for multiple file should be  add
+git add file1 file2 we can add which file we want
+git add --all 
+
+
+27/10/2022
+--------------
+git branch to know in which we are in
+git  branch branchname to create new branch
+git checkout branchname to switching one to another branch
+git checkout -b branchname create branch from perticular branch
+
+git branch -m oldbranchname newbranchname to rename a brach
+
+
+
+-------
+merging the file from one branch to another branch
+before merging we need switch the branch where we have to merge it
+git checkout branchname
+git merge master this will help us to merger files from master to our require the branch to merge
+
+git log to track the timing which have done
+---------
+merge conflicts
+
+
+
+
+
+
+
+

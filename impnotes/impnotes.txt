@@ -1,0 +1,199 @@
+
+basic sqlqueries
+---------------
+create table Country(countryid int genrated always as identity,
+    countryname varchar(100))
+
+
+insert into Country('aus')
+insert into Country('ind')
+
+
+create table state(stateid int genratred always as identity,
+statename varchar(100),countryid int)
+
+create table sample(id int genrated always as identity,
+name varchar(100) not null,address varchar(100) not null)
+
+
+
+id int genrated always as identity
+
+insert into state(statename,countryid) values('telangana',1)
+insert into state(statename,countryid) values('ap',1)
+insert into country(countryname) values('ind')
+insert into state(statename,countryid) vlues('sidney',2)
+insert into state(statename,countryid) values('melborn',2)
+
+
+ delete from state where statename='ap'
+
+
+insert into color(color_name)VALUES('red')
+DELETE from color WHERE  color_name='Red'
+update color set color_name='Red' where color_id =7
+
+
+
+select * from state
+select * from country
+
+select * from country as c inner join  state as s on c.countryid=s.countryid
+select * from country as c left join state as s on c.countryid=s.countryid
+select * from country as c right join state as s on c.countryid=s.countryid
+slect *  from country as c full join state as s on c.countryid=s.countryid
+=========================================================================
+
+
+procedures 
+------------------>>>>>>
+
+simple procedure
+
+syntax: CREATE PROCEDURE tbl
+AS
+select tblemployee.firstname,tbldepartment.departmentname from 
+tblemployee right join tbldepartment on tblemployee.empid=tbldepartment.deptid
+GO;
+
+
+
+
+create procedure tbl
+as 
+select * from country
+select * from state
+go;
+
+EXEC procedure_name;
+exec tbl
+
+create procedure procedurename @country varchar(100)
+
+as
+select * from country where countryname=@country
+go;
+
+exec procedurename @country='ind'
+
+
+
+create procedure produrename @state varchar(50)
+as 
+select * from        state  where statename=@state
+go
+
+exec procedurename @state='ap'
+
+create procedure procedurename @city varchar(100),@postalcode varchar(100)
+as
+select * from city where cityname=@city and postalcode=@postalcode
+go;
+
+exec procedurename @city='ind',@postalcode='505001'; 
+
+rename storedprocedure
+
+
+EXEC sp_rename 'HumanResources.uspGetAllEmployeesTest', 'uspEveryEmployeeTest';
+exec procedurename  '
+
+------>>>>>>
+stored procedure for creating query
+
+create procedure temp_employee
+as
+create table #temp_employee(
+        Id int genrated always as identity,
+        name varchar(100),
+        address varchar(100))
+
+ALTER PROCEDURE Masterinsertupdatedelete (@id            INTEGER,
+                                          @first_name    VARCHAR(10),
+                                          @last_name     VARCHAR(10),
+                                          @salary        DECIMAL(10, 2),
+                                          @city          VARCHAR(20),
+                                          @StatementType NVARCHAR(20) = '')
+AS
+  BEGIN
+      IF @StatementType = 'Insert'
+        BEGIN
+            INSERT INTO employee
+                        (id,
+                         first_name,
+                         last_name,
+                         salary,
+                         city)
+            VALUES     ( @id,
+                         @first_name,
+                         @last_name,
+                         @salary,
+                         @city)
+        END
+
+
+      IF @StatementType = 'Select'
+        BEGIN
+            SELECT *
+            FROM   employee
+        END
+
+      IF @StatementType = 'Update'
+        BEGIN
+            UPDATE employee
+            SET    first_name = @first_name,
+                   last_name = @last_name,
+                   salary = @salary,
+                   city = @city
+            WHERE  id = @id
+        END
+      ELSE IF @StatementType = 'Delete'
+        BEGIN
+            DELETE FROM employee
+            WHERE  id = @id
+        END
+  END
+
+
+
+
+
+
+code fist approach for sql server
+----------------------------------.......>>>>>>>>
+https://www.youtube.com/watch?v=K6VVCxhFVgY
+		add-migration Init
+	        update-database
+
+"ConnectionStrings": {
+    "ProductApiContext": "Server=DESKTOP-1UM8BCR;Database=database.Data;Trusted_Connection=True;MultipleActiveResultSets=true"
+  }
+------------------------------------------
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

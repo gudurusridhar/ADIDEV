@@ -1,0 +1,44 @@
+Microsoft.EntityFrameworkCore.Design
+Clevership999 or Clevership@999 for netgear 47 5g
+
+
+Microsoft.EntityFrameworkCore.Design
+Microsoft.EntityFrameworkCore.Tools.DotNet
+Microsoft.NETCore.App
+Npgsql.EntityFrameworkCore.PostgreSQL
+Npgsql.EntityFrameworkCore.PostgreSQL.Design
+
+dotnet ef dbcontext scaffold "Host=localhost;Database=Test;Username=postgres;Password=postgres" Npgsql.EntityFrameworkCore.PostgreSQL -o Models
+Scaffold-DbContext"Host=localhost;Database=Test;Username=postgres;Password=postgres" Npgsql.EntityFrameworkCore.PostgreSQL -o Models
+
+Scaffold-DbContext "Host=localhost;Database=Test;Username=admin;Password=admin@123" Npgsql.EntityFrameworkCore.PostgreSQL -o Models
+Scaffold-DbContext "Host=localhost;Database=MyDatabase1111;Username=postgres;Password=postgres;Port=5432" Npgsql.EntityFrameworkCore.PostgreSQL -o Models
+
+
+----->>>>>>>>>>>
+angular commands
+
+ng new projectname-- create
+cd projectfolder --- move to folder
+code . open the project
+ng g c componentname
+ng g s servicename
+ng serve
+ng serve -o
+
+{
+  "ConnectionStrings": {
+    "DefaultConnection": "Host=localhost;Port=5432;User ID=postgres;Password=<***>;Database=timelapse
+"
+  },
+
+
+we will import formsmodule in app.module.ts n HttpClient
+                                    
+
+
+
+
+
+
+

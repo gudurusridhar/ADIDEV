@@ -1,0 +1,80 @@
+
+https://www.c-sharpcorner.com/article/working-with-data-using-entity-framework-core/
+
+https://www.c-sharpcorner.com/article/crud-operations-in-postgresql-with-ef-core-and-asp-net-core-web-api/
+
+
+https://stackoverflow.com/questions/39454545/the-term-scaffold-dbcontext-is-not-recognized-as-the-name-of-a-cmdlet-functio
+
+“Npgsql.EntityFrameworkCore.PostgreSQL
+
+ Microsoft.EntityFrameworkCore 6.03 version
+
+Make sure the browser is selected at the top and search for "EntityFrameworkCore" and install the Package
+
+
+Scaffold-DbContext "Server=(localdb)\mssqllocaldb;Database=myDbName;Trusted_Connection=True;" Microsoft.EntityFrameworkCore.SqlServer -OutputDir Models
+Scaffold-DbContext "Server=PostgreSQL 14;Database=Sample;Trusted_Connection=True;"System.Data.SqlClient -OutputDir Models
+
+--------........>>>>>>>
+
+Microsoft.EntityFrameworkCore
+Microsoft.EntityFrameworkCore.SqlServer
+Microsoft.EntityFrameworkCore.Tools
+Microsoft.EntityFrameworkCore.SqlServer
+Scaffold-DbContext "Server=(localdb)\mssqllocaldb;Database=myDbName;Trusted_Connection=True;" Microsoft.EntityFrameworkCore.SqlServer -OutputDir Models
+
+using CrudApi.DataAccess;
+using CrudApi.Model;
+using Microsoft.AspNetCore.Http;
+using Microsoft.AspNetCore.Mvc;
+
+namespace CrudApi.Controllers
+{
+    [Route("api/[controller]")]
+    [ApiController]
+    public class PatientsController : ControllerBase
+    {
+        PostgreSqlContext obj = new PostgreSqlContext();
+        [Route("GetPatients")]
+        [HttpGet]
+        public List<Patient> GetPatients()
+        {
+            return obj.patients.ToList();
+
+        }
+        [Route("AddpPatient")]
+        [HttpPost]
+        public bool AddPatient(Patient patient)
+        {
+            var data = obj.patients.Add(patient);
+            return true;
+        }
+        [Route("UpdatepPatient")]
+        [HttpPut]
+        public bool UpdataePatient(Patient patient)
+        {
+            var data = obj.patients.Where(x => x.id == patient.id).FirstOrDefault();
+            data.name = patient.name;
+            data.address = patient.address;
+            data.gender = patient.gender;
+            data.age = patient.age;
+            data.city = patient.city;
+            obj.Update(data);
+            obj.SaveChanges();
+            return true;
+        }
+        [Route("DeletePatient/{id}")]
+         [HttpDelete]
+        public bool DeletePatient(string id)
+        {
+            var data = obj.patients.Where(x => x.id == id).FirstOrDefault();
+            obj.patients.Remove(data);
+            obj.SaveChanges();
+            return true;
+        }
+
+
+    }
+}
+
